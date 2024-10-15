@@ -15,7 +15,7 @@
         "rubix/ml": "^2.5",
         "sastrawi/sastrawi": "^1.2",
         "voku/stop-words": "^2.0",
-        "wamania/php-stemmer": "*"
+        "wamania/php-stemmer": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

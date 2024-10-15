@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Blog;
 use App\Utils\UploadFile;
 use voku\helper\StopWords;
-use Sastrawi\Stemmer\StemmerFactory;
+use Wamania\Snowball\StemmerFactory;
 use App\Helpers\TfidfHelper;
 
 class BlogRepositories
@@ -24,6 +24,7 @@ class BlogRepositories
             $search = strtolower($search);
             $search = preg_replace("/[^\w\s]/", '', $search);
 
+
             // Step 2: Tokenization
             $tokenization = explode(' ', $search);
 
@@ -33,19 +34,14 @@ class BlogRepositories
             $filteredTokens = array_diff($tokenization, $filtering);
 
             // Step 4: Stemming
-            $stemmerFactory = new StemmerFactory();
-            $stemmer = $stemmerFactory->createStemmer();
-            $stemmedTokens = array_map(function($token) use ($stemmer) {
-                return $stemmer->stem($token);
-            }, $filteredTokens);
-
-            dd($filteredTokens, $stemmedTokens);
+            $stemmer = StemmerFactory::create('en');
+            $stemmer = explode(' ', $stemmer->stem(implode(' ', $filteredTokens)));
 
             // Step 5: Retrieve All Blogs
             $allBlogs = $this->blog->with('category_blog')->get();
 
             // Step 6: Calculate TF-IDF
-            $tfIdf = TfidfHelper::calculateTfidf($allBlogs, $stemmedTokens);
+            $tfIdf = TfidfHelper::calculateTfidf($allBlogs, $stemmer);
             $sortedBlogs = [];
             foreach ($tfIdf as $blogId => $terms) {
                 $totalScore = array_sum($terms);
