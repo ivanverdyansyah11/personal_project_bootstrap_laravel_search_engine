@@ -1,0 +1,239 @@
+/* FONTFACE */
+@font-face {
+    font-family: "urbanist-regular";
+    src: url("../font/urbanist/Urbanist-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "urbanist-medium";
+    src: url("../font/urbanist/Urbanist-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "urbanist-semibold";
+    src: url("../font/urbanist/Urbanist-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "urbanist-bold";
+    src: url("../font/urbanist/Urbanist-Bold.ttf") format("truetype");
+}
+/* END FONTFACE */
+
+
+/* ROOT VARIABLE */
+:root {
+    --primary-color: 33, 105, 235;
+    --dark-color: 33, 33, 33;
+    --dark-light-color: 47, 47, 47;
+    --dark-old-color: 23, 23, 23;
+    --light-color: 255, 255, 255;
+    --blue-color: 55, 128, 212;
+    --yellow-color: 246, 196, 106;
+    --red-color: 213, 80, 81;
+    --urbanist-regular: "urbanist-regular", Arial, Helvetica, sans-serif;
+    --urbanist-medium: "urbanist-medium", Arial, Helvetica, sans-serif;
+    --urbanist-semibold: "urbanist-semibold", Arial, Helvetica, sans-serif;
+    --urbanist-bold: "urbanist-bold", Arial, Helvetica, sans-serif;
+    --border-style: 1px solid rgba(17, 17, 17, 0.12);
+    --transition-duration: 250ms;
+}
+/* END ROOT VARIABLE */
+
+
+/* BASE */
+* {
+    font-family: var(--urbanist-medium);
+    color: rgba(var(--light-color), 1);
+    transition: var(--transition-duration);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    line-height: 150%;
+}
+
+a {
+    color: rgba(var(--light-color), 1);
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    line-height: 150%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgba(var(--light-color), 1);
+    min-height: 100vh;
+    height: fit-content;
+}
+/* END BASE */
+
+
+/* TOPBAR */
+.topbar {
+    height: 82px;
+    border-bottom: 1px solid rgba(var(--light-color), 0.12);
+}
+
+.topbar a {
+    font-size: 1.5rem;
+    font-family: var(--urbanist-semibold);
+}
+
+.topbar img {
+    border-radius: 9999px;
+    outline: 6px solid transparent;
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.topbar img:hover {
+    outline-color: rgba(var(--light-color), 0.06);
+}
+/* END TOPBAR */
+
+
+/* MAIN STYLE */
+main {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    background-color: rgba(var(--dark-color), 1);
+}
+
+main .section-header {
+    margin-top: 120px;
+}
+
+main .section-header.header-content {
+    margin-top: 42px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(var(--light-color), 0.12);
+}
+
+main .section-header .title {
+    font-size: 3rem;
+    font-family: var(--urbanist-semibold);
+    color: rgba(var(--light-color), 1);
+    line-height: 120%;
+    margin-bottom: 16px;
+}
+
+main .section-header .description {
+    font-size: 0.913rem;
+    color: rgba(var(--light-color), 0.52);
+    margin-bottom: 42px;
+}
+
+main .section-header .form-input-search {
+    position: relative;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+main .section-header.header-content .form-input-search {
+    margin-bottom: 0;
+}
+
+main .section-header .form-input-search input {
+    position: relative;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 9999px;
+    background-color: rgba(var(--dark-light-color), 1);
+    border: none;
+    outline: none;
+    stroke: none;
+    font-size: 0.913rem;
+    color: rgba(var(--light-color), 0.52);
+}
+
+main .section-header .form-input-search input::placeholder {
+    color: rgba(var(--light-color), 0.52);
+    font-size: 0.913rem;
+}
+
+main .section-header .form-input-search button {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    border: none;
+    outline: none;
+    stroke: none;
+    background-color: rgba(var(--light-color), 1);
+    opacity: 1;
+}
+
+main .section-header .form-input-search button:hover {
+    opacity: 0.52;
+}
+
+main .section-header .form-input-search button i {
+    color: rgba(var(--dark-light-color), 1);
+    font-size: 1rem;
+}
+
+main .button-category {
+    padding: 10px 20px;
+    background-color: rgba(var(--dark-color), 1);
+    border: 1px solid rgba(var(--light-color), 0.12);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: rgba(var(--light-color), 0.52);
+    outline: none;
+    stroke: none;
+}
+
+main .button-category:hover {
+    color: rgba(var(--light-color), 1);
+}
+
+main .section-content {
+    width: 100%;
+    margin-top: 24px;
+}
+
+main .section-content .content-blog {
+    border-bottom: 1px solid rgba(var(--light-color), 0.12);
+}
+
+main .section-content .content-blog:hover .blog-title {
+    text-decoration: underline;
+}
+
+main .section-content .content-blog .blog-title {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+main .section-content .content-blog .blog-description span {
+    font-size: 0.875rem;
+    color: rgba(var(--light-color), 0.32);
+}
+
+main .section-content .content-blog .blog-description {
+    font-size: 0.875rem;
+    color: rgba(var(--light-color), 0.52);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+/* END MAIN STYLE */
